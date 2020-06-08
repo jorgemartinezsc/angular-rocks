@@ -1,0 +1,44 @@
+@import "../../../../../../scss/partials/variables";
+
+.navigation-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &__link {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.25rem;
+    color: $white;
+    text-decoration: none;
+  }
+
+  &__btn {
+    position: absolute;
+    right: 1rem;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: $dark4;
+
+    &:hover {
+      background-color: $red;
+    }
+
+    & svg {
+      transform: rotateZ(45deg);
+    }
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, .15);
+
+    button {
+      display: flex;
+    }
+  }
+}

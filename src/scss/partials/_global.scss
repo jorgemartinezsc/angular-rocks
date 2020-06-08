@@ -19,5 +19,18 @@ textarea {
 }
 
 body {
-  background-color: $background1;
+  background-color: $dark1;
+  min-height: 100vh;
+}
+
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: $white;
 }
