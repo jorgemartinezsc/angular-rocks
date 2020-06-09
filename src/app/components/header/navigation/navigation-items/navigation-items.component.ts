@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BandsService } from '../../../../services/bands.service';
+import { Band } from '../../../../models/band.model';
 
 @Component({
   selector: 'app-navigation-items',
@@ -7,13 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationItemsComponent implements OnInit {
 
-  public bands: string[]
+  public loadedBands: Band[];
 
-  constructor() { }
+  constructor(
+    private bandsService: BandsService
+  ) { }
 
   ngOnInit(): void {
-    this.bands = ['The Rolling Stones', 'Led Zeppelin', 'Queen', 'Pink Floyd', 'Deep Purple', 'AC/DC', 'The Ramones', 'Kiss']
+    this.loadedBands = [];
+    this.bandsService.fetchBands().subscribe(bands => {
+      this.loadedBands = bands;
+    });
   }
-
-
 }

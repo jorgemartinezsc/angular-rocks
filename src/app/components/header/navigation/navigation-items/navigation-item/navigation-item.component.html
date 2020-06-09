@@ -1,6 +1,6 @@
 <li class="navigation-item">
   <a class="navigation-item__link" [routerLink]="['/']">{{ name }}</a>
-  <button class="navigation-item__btn">
+  <button class="navigation-item__btn" (click)="deleteBand()">
     <svg alt="Delete">
       <use xlink:href="/assets/sprite.svg#cross"></use>
     </svg>

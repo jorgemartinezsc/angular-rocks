@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.isModalOpen = true;
+    this.isModalOpen = false;
   }
 
   modalToggler(): void {
