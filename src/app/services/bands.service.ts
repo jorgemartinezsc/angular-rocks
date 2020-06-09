@@ -10,6 +10,7 @@ import { Band } from '../models/band.model';
 export class BandsService {
 
   private urlGet: string
+  private urlGetById: string
   private urlPost: string
   private urlDelete: string
 
@@ -17,6 +18,7 @@ export class BandsService {
     private http: HttpClient
   ) {
     this.urlGet = `${environment.apiUrl}bands.json`;
+    this.urlGetById = `${environment.apiUrl}bands/`;
     this.urlPost = `${environment.apiUrl}bands.json`;
     this.urlDelete = `${environment.apiUrl}bands/`;
   }
@@ -29,6 +31,13 @@ export class BandsService {
           bandsArray.push({ ...responseData[key], id: key } as Band)
         }
         return bandsArray
+      }))
+  }
+
+  getBandById(id) {
+    return this.http.get(this.urlGetById + id + '.json')
+      .pipe(map(responseData => {
+        return responseData as Band
       }))
   }
 

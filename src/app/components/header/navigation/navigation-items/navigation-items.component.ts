@@ -17,6 +17,10 @@ export class NavigationItemsComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadedBands = [];
+    this.getBands();
+  }
+
+  getBands():void {
     this.bandsService.fetchBands().subscribe(bands => {
       this.loadedBands = bands;
     });

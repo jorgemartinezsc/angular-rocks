@@ -18,18 +18,13 @@
   z-index: 100;
   background-color: $dark2;
 
-  &__btn-group {
-    display: flex;
-    flex-direction: column;
-    margin: auto 1rem 1rem;
-  }
-
   &__link {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: calc(100% - 2rem);
     height: 4rem;
+    margin: auto 1rem 1rem;
     background-color: $red;
     border: 1px solid $dark1;
     border-radius: .5rem;

@@ -1,5 +1,5 @@
 <header class="site-header">
-  <h1 class="site-header__logo">Angular Rocks</h1>
+  <h1 class="site-header__logo"><a [routerLink]="['']">Angular Rocks</a></h1>
   <app-navigation></app-navigation>
   <app-drawertoggle (clicked)="modalToggler()"></app-drawertoggle>
   <app-navigation-modal *ngIf="isModalOpen" (clicked)="modalToggler()"></app-navigation-modal>

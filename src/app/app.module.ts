@@ -11,6 +11,9 @@ import { NavigationItemsComponent } from './components/header/navigation/navigat
 import { NavigationItemComponent } from './components/header/navigation/navigation-items/navigation-item/navigation-item.component';
 import { NavigationModalComponent } from './components/header/navigation/navigation-modal/navigation-modal.component';
 import { NavigationSearchComponent } from './components/header/navigation/navigation-search/navigation-search.component';
+import { BandComponent } from './components/band/band.component';
+import { BandFormComponent } from './components/band/band-form/band-form.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { NavigationSearchComponent } from './components/header/navigation/naviga
     NavigationItemsComponent,
     NavigationItemComponent,
     NavigationModalComponent,
-    NavigationSearchComponent
+    NavigationSearchComponent,
+    BandComponent,
+    BandFormComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
