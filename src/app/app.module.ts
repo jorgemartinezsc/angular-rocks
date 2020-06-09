@@ -9,6 +9,7 @@ import { NavigationComponent } from './components/header/navigation/navigation.c
 import { NavigationItemsComponent } from './components/header/navigation/navigation-items/navigation-items.component';
 import { NavigationItemComponent } from './components/header/navigation/navigation-items/navigation-item/navigation-item.component';
 import { NavigationModalComponent } from './components/header/navigation/navigation-modal/navigation-modal.component';
+import { NavigationSearchComponent } from './components/header/navigation/navigation-search/navigation-search.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NavigationModalComponent } from './components/header/navigation/navigat
     NavigationComponent,
     NavigationItemsComponent,
     NavigationItemComponent,
-    NavigationModalComponent
+    NavigationModalComponent,
+    NavigationSearchComponent
   ],
   imports: [
     BrowserModule,
