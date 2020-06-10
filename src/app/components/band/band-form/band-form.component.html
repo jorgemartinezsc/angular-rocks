@@ -1,1 +1,18 @@
-<p>band-form works!</p>
+<form #bandForm="ngForm" (ngSubmit)="onSubmit()" class="band-form">
+  <h2 class="band-form__title">Add band</h2>
+  <div class="band-form__options">
+    <div class="form-group">
+      <label class="form-group__label" for="band-name">Name</label>
+      <input class="form-group__control" id="band-name" type="text" name="name" [(ngModel)]="newBand.name" required>
+    </div>
+    <div class="form-group">
+      <label class="form-group__label" for="band-description">Description</label>
+      <textarea class="form-group__control form-group__control--textarea" id="band-description"  name="description" [(ngModel)]="newBand.description"></textarea>
+    </div>
+    <div class="form-group">
+      <label class="form-group__label" for="band-videoUrl">Video URL</label>
+      <input class="form-group__control" id="band-videoUrl" type="text" name="videoUrl" [(ngModel)]="newBand.videoUrl">
+    </div>
+  </div>
+  <button type="submit" class="band-form__btn" [disabled]="!bandForm.valid" [ngClass]="{'band-form__btn--disabled': !bandForm.valid}">Add</button>
+</form>

@@ -10,6 +10,10 @@
     width: 100%;
     padding: 1rem;
     font-size: 1.25rem;
+
+    &--active {
+      background-color: $dark3;
+    }
   }
 
   &__btn {

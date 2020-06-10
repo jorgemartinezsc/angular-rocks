@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { BandsService } from 'src/app/services/bands.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navigation-item',
@@ -11,14 +12,16 @@ export class NavigationItemComponent implements OnInit {
   @Input() id: string;
 
   constructor(
-    private bandsService: BandsService
+    private bandsService: BandsService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
   }
 
   deleteBand(): void {
-    console.log('Deleting band with Id: ' + this.id)
-    //this.bandsService.removeBand(this.id).subscribe()
+    this.bandsService.removeBand(this.id).subscribe(responseData => {
+      this.router.navigate(['/']);
+    })
   }
 }
