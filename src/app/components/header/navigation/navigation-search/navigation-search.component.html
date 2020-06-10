@@ -1,6 +1,6 @@
-<form class="search">
+<form #searchForm="ngForm" (ngSubmit)="onSubmit()" class="search">
   <label class="search__label">
-    <input type="text" class="search__control" placeholder="Search...">
+    <input type="text" class="search__control" placeholder="Search..." name="textToSearch" [(ngModel)]="textToSearch" (keyup)="onSubmit()">
   </label>
   <button class="search__btn">
     <svg alt="Search">

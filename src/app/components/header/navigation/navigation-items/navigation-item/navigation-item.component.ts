@@ -20,8 +20,6 @@ export class NavigationItemComponent implements OnInit {
   }
 
   deleteBand(): void {
-    this.bandsService.removeBand(this.id).subscribe(responseData => {
-      this.router.navigate(['/']);
-    })
+    this.bandsService.removeBand(this.id)
   }
 }

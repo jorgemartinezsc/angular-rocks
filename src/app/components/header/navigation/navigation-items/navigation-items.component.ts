@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BandsService } from '../../../../services/bands.service';
 import { Band } from '../../../../models/band.model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-navigation-items',
@@ -9,20 +10,28 @@ import { Band } from '../../../../models/band.model';
 })
 export class NavigationItemsComponent implements OnInit {
 
-  public loadedBands: Band[];
+  subscription: Subscription;
+  public bands: Band[];
 
   constructor(
     private bandsService: BandsService
   ) { }
 
   ngOnInit(): void {
-    this.loadedBands = [];
-    this.getBands();
+    //this.getBands();
+    this.bandsService.fetchBands();
+    this.subscription = this.bandsService.bandsChanged.subscribe((bands: Band[]) => {
+      this.bands = bands;
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   getBands():void {
-    this.bandsService.fetchBands().subscribe(bands => {
-      this.loadedBands = bands;
-    });
+    // this.bandsService.fetchBands().subscribe(bands => {
+    //   this.loadedBands = bands;
+    // });
   }
 }

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Band } from 'src/app/models/band.model';
 import { BandsService } from '../../../services/bands.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-band-form',
@@ -13,8 +12,7 @@ export class BandFormComponent implements OnInit {
   public newBand: Band
 
   constructor(
-    private bandsService: BandsService,
-    private router: Router
+    private bandsService: BandsService
   ) { }
 
   ngOnInit(): void {
@@ -22,10 +20,7 @@ export class BandFormComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.bandsService.postBand(this.newBand).subscribe(responseData => {
-      this.router.navigate(['/band/' + responseData.name]);
-      console.log(responseData);
-    });
+    this.bandsService.postBand(this.newBand);
   }
 
 }
