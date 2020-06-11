@@ -1,5 +1,8 @@
-<div class="modal" (click)="close()">
+<div class="modal">
   <app-navigation-search></app-navigation-search>
-  <app-navigation-items></app-navigation-items>
-  <a [routerLink]="['/create']" class="modal__link">Add new</a>
+  <app-navigation-items (click)="closeModal()"></app-navigation-items>
+  <div class="modal__options">
+    <button class="modal__btn" (click)="closeModal()">Close</button>
+    <a [routerLink]="['/create']" class="modal__link"  (click)="closeModal()">Add new</a>
+  </div>
 </div>

@@ -15,8 +15,7 @@ export class NavigationModalComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  close(): void {
+  closeModal(): void {
     this.clicked.emit();
   }
-
 }
