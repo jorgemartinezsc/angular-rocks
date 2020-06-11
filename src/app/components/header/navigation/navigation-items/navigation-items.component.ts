@@ -12,6 +12,7 @@ export class NavigationItemsComponent implements OnInit {
 
   subscription: Subscription;
   public bands: Band[];
+  public loading: boolean;
 
   @Output() close: EventEmitter<any> = new EventEmitter;
 
@@ -20,13 +21,20 @@ export class NavigationItemsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.loading = false
     this.bandsService.fetchBands();
-    this.subscription = this.bandsService.bandsChanged.subscribe((bands: Band[]) => {
-      this.bands = bands;
-    });
+    this.subscribeBands();
   }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
+  }
+
+  subscribeBands(): void {
+    this.loading = true;
+    this.subscription = this.bandsService.bandsChanged.subscribe((bands: Band[]) => {
+      this.bands = bands;
+      this.loading = false;
+    });
   }
 }

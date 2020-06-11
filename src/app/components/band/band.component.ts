@@ -12,9 +12,10 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class BandComponent implements OnInit {
 
-  public loadedBand: Band
-  public videoUrl: object
-  private routeSubscription: Subscription
+  public loadedBand: Band;
+  public videoUrl: object;
+  private routeSubscription: Subscription;
+  public loading: boolean;
 
   constructor(
     private bandsService: BandsService,
@@ -25,15 +26,18 @@ export class BandComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loading = false;
     this.routeSubscription = this.activatedRoute.params.subscribe(params => {
       this.getBand(params['id']);
     })
   }
 
   getBand(id): void {
+    this.loading = true;
     this.bandsService.getBandById(id).subscribe(band => {
       this.loadedBand = band;
       this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(band.videoUrl);
+      this.loading = false;
     })
   }
 

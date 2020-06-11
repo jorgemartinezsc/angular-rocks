@@ -1,4 +1,5 @@
-<nav class="navigation-items">
+<app-spinner *ngIf="loading"></app-spinner>
+<nav class="navigation-items"  *ngIf="!loading">
   <ul>
     <app-navigation-item *ngFor="let band of bands" [name]="band.name" [id]="band.id" (close)="this.close.emit()"></app-navigation-item>
   </ul>

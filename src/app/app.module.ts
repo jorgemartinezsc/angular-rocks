@@ -15,6 +15,7 @@ import { NavigationSearchComponent } from './components/header/navigation/naviga
 import { BandComponent } from './components/band/band.component';
 import { BandFormComponent } from './components/band/band-form/band-form.component';
 import { HomeComponent } from './components/home/home.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HomeComponent } from './components/home/home.component';
     NavigationSearchComponent,
     BandComponent,
     BandFormComponent,
-    HomeComponent
+    HomeComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
