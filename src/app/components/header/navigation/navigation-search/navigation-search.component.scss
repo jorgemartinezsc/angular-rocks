@@ -16,7 +16,7 @@
   &__control {
     width: calc(100% - 2rem);
     height: 3rem;
-    padding-left: 1rem;
+    padding: 0 2.5rem 0 1rem;
     border: 1px solid $dark4;
     border-radius: .5rem;
     background-color: $dark1;
@@ -24,15 +24,12 @@
     outline: transparent;
   }
 
-  &__btn {
+  svg {
     position: absolute;
     right: 1rem;
     padding: .5rem;
-
-    svg {
-      width: 1.5rem;
-      height: 1.5rem;
-    }
+    width: 2.5rem;
+    height: 2.5rem;
   }
 
   @media (min-width: 1024px) {
