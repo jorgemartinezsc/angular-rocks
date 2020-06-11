@@ -1,6 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { BandsService } from 'src/app/services/bands.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navigation-item',
@@ -10,10 +9,10 @@ import { Router } from '@angular/router';
 export class NavigationItemComponent implements OnInit {
   @Input() name: string;
   @Input() id: string;
+  @Output() close: EventEmitter<any> = new EventEmitter;
 
   constructor(
-    private bandsService: BandsService,
-    private router: Router
+    private bandsService: BandsService
   ) { }
 
   ngOnInit(): void {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { BandsService } from '../../../../services/bands.service';
 import { Band } from '../../../../models/band.model';
 import { Subscription } from 'rxjs';
@@ -13,12 +13,13 @@ export class NavigationItemsComponent implements OnInit {
   subscription: Subscription;
   public bands: Band[];
 
+  @Output() close: EventEmitter<any> = new EventEmitter;
+
   constructor(
     private bandsService: BandsService
   ) { }
 
   ngOnInit(): void {
-    //this.getBands();
     this.bandsService.fetchBands();
     this.subscription = this.bandsService.bandsChanged.subscribe((bands: Band[]) => {
       this.bands = bands;
@@ -27,11 +28,5 @@ export class NavigationItemsComponent implements OnInit {
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
-  }
-
-  getBands():void {
-    // this.bandsService.fetchBands().subscribe(bands => {
-    //   this.loadedBands = bands;
-    // });
   }
 }

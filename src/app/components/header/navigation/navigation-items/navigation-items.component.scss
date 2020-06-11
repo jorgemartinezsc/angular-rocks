@@ -1,4 +1,10 @@
 .navigation-items {
   width: 100%;
+  max-height: 65vh;
   margin: 1rem 0;
+  overflow: auto;
+
+  @media (min-width: 1024px) {
+    max-height: calc(100vh - 16rem);
+  }
 }
